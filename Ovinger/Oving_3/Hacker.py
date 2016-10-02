@@ -20,6 +20,7 @@ class Hacker(metaclass=ABCMeta):
         hackers = [CaesarHacker(), MultiplicativeHacker(), AffineHacker(), UnbreakableHacker()]
         for hacker in hackers:
             print("Testing with " + hacker.__class__.__name__)
+
             hacker.hack(text)
             print("Results from " + hacker.__class__.__name__ + ":   " + str(len(hacker.possible_words)))
             counter = 1
