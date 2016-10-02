@@ -14,6 +14,7 @@ class Cipher(metaclass=ABCMeta):
     ### CLASS METHODS:
     @classmethod
     def to_index(cls, ascii_symbol: chr):
+
         """
         Converts an ascii chr to the index in LEGAL_SYMBOLS
         :param ascii_symbol: symbol to convert to index
