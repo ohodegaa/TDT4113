@@ -18,13 +18,11 @@ class WordList:
     def build(self, word_list):
         for word in self.get_word_list():
             node = self.top_node
-            i = None
             for i in range(len(word)):
                 if node.barn.get(word[i]) is None:
                     node.barn[word[i]] = Node()
                 node = node.barn[word[i]]
-            if i == len(word) - 1:
-                node.is_end = True
+            node.is_end = True
 
     def __contains__(self, text):
         def check_word(word):
