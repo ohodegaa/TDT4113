@@ -3,6 +3,7 @@ __author__ = 'ohodegaa'
 from Koder import Cipher
 from Multiplicative import MultiplicativeCipher
 from Caesar import CaesarCipher
+from random import randint
 
 
 class AffineCipher(Cipher):
@@ -34,3 +35,10 @@ class AffineCipher(Cipher):
 
     def operate_symbol(self, symbol: chr):
         pass
+
+    def generate_key(self):
+        key1 = randint(0, self.DIVISOR)
+        key2 = randint(0, self.DIVISOR)
+        self.multi_coder.set_key(key1)
+        self.caesar_coder.set_key(key2)
+        return key1, key2
