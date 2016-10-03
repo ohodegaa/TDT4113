@@ -98,7 +98,7 @@ class UnbreakableHacker(Hacker):
 
 def main():
     hacker = Hacker()
-    hacker.hack_all(r"ushpl^[n")
+    hacker.hack_all(r"YOggQpWtzPRW`zKdijgFpNjb")
 
 
 if __name__ == '__main__':

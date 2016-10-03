@@ -92,7 +92,7 @@ def main():
     receiver = Receiver(receiver_cipher)
 
     while True:
-        text = input("Sender message: 'q' for exit")
+        text = input("Sender message: 'q' for exit\n")
         if text == 'q':
             break
         sender.encode(text)
