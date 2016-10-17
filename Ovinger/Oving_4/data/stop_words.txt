@@ -134,6 +134,3 @@ plot
 films
 movies
 think
-i'll
-it's
-don't

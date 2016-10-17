@@ -158,12 +158,15 @@ class Analyze_data:
         word_counter = self.get_word_counter(pos_or_neg)
 
         for k, v in word_counter.items():
-
-            if (self.total_counter.get(k)/self.reader.get_total_revs_count()) > 0.03:
-                most_informative_words.append((k, (v/self.total_counter.get(k))))
+            most_informative_words.append((k, (v/self.total_counter.get(k))))
 
         return sorted(most_informative_words, reverse=True, key=getKey)[:25]
 
+
+    def pruning(self):
+        words_to_prune = []
+
+        for
 
 
     def get_reviews(self, pos_or_neg):
@@ -193,8 +196,7 @@ class Analyze_data:
 
 def main():
     analyzer = Analyze_data()
-    print(analyzer.get_most_informative_words(False))
-    print(analyzer.get_most_informative_words(True))
+
 
 
 
