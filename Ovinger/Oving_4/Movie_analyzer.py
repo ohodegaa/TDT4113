@@ -45,10 +45,6 @@ class Analyzer:
 
         return [[word[0], get_key(word)] for word in sorted(counter.items(), reverse=True, key=get_key)[0:25]]
 
-    def get_propability(self, words, num_of_files):
-        for word in words:
-            word[1] = round(word[1] / num_of_files, 4)
-        return words
 
     def get_informative_value(self, dir: Folder_reader):
         counter = dir.get_counter()
