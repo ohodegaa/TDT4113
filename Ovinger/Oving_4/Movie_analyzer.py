@@ -3,7 +3,6 @@ __author__ = 'ohodegaa'
 from Folder_handler import Folder_reader
 from File_handler import File_reader
 from collections import Counter
-from operator import itemgetter
 import glob
 import os
 import math
@@ -35,9 +34,9 @@ class Analyzer:
         self.prune(self.all_dirs)
 
 
-    def get_most_popular_words(self, dir: Folder_reader):
-        num_of_files = dir.get_number_of_files()
-        counter = dir.get_counter()
+    def get_most_popular_words(self, dir_path: Folder_reader):
+        num_of_files = dir_path.get_number_of_files()
+        counter = dir_path.get_counter()
 
         def get_key(item):
             nonlocal num_of_files
@@ -46,8 +45,8 @@ class Analyzer:
         return [[word[0], get_key(word)] for word in sorted(counter.items(), reverse=True, key=get_key)[0:25]]
 
 
-    def get_informative_value(self, dir: Folder_reader):
-        counter = dir.get_counter()
+    def get_informative_value(self, dir_path: Folder_reader):
+        counter = dir_path.get_counter()
         all_counter = self.all_dirs.get_counter()
 
         def get_key(item):
@@ -56,8 +55,8 @@ class Analyzer:
 
         return dict((word[0], get_key(word)) for word in sorted(counter.items(), reverse=True, key=get_key)[0:34])
 
-    def prune(self, dir):
-        [dir.get_counter().pop(key) for key in [k if ((v/self.all_dirs.get_number_of_files()) < 0.03 or any(c in Folder_reader.stop_words for c in k.split("_"))) else "" for k, v in dir.get_counter().items()] if key in dir.get_counter().keys()]
+    def prune(self, dir_path):
+        [dir_path.get_counter().pop(key) for key in [k for k, v in dir_path.get_counter().items() if ((v/self.all_dirs.get_number_of_files()) < 0.03 or any(c in Folder_reader.stop_words for c in k.split("_")))]]
 
 
     def classification(self, pos_dir, neg_dir):
@@ -69,8 +68,8 @@ class Analyzer:
 
         correct = True
 
-        for dir in [pos_dir, neg_dir]:
-            for file in glob.glob(os.path.join(dir, '*.txt')):
+        for dir_path in [pos_dir, neg_dir]:
+            for file in glob.glob(os.path.join(dir_path, '*.txt')):
                 word_set = File_reader(open(file, encoding='utf-8').read()).get_word_set()
 
                 pos_val = self.get_pos_value(word_set, neg_counter, pos_counter)

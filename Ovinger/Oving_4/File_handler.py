@@ -25,11 +25,11 @@ class File_reader:
             if append:
                 word_set.append(word.strip())
 
-        _2_gram = self.generate_n_grams(word_set, 2)
-        _3_gram = self.generate_n_grams(word_set, 3)
+        #_2_gram = self.generate_n_grams(word_set, 2)
+        #_3_gram = self.generate_n_grams(word_set, 3)
 
         word_set = list(set(word_set))
-        return word_set + _2_gram + _3_gram
+        return word_set #+ _2_gram + _3_gram
 
     def generate_n_grams(self, words, n):
         n_grams = []
