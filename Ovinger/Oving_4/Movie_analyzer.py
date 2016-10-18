@@ -120,12 +120,15 @@ class Analyzer:
                 correct_guesses += 1
         return correct_guesses / num_of_files
 
+subset_path = "/Users/olehakon95/Documents/OneDrive - NTNU/Arstrinn_2/semester_3_host/ProgLAB/Ovinger/Oving_4/data/subset/"
+alle_path = "/Users/olehakon95/Documents/OneDrive - NTNU/Arstrinn_2/semester_3_host/ProgLAB/Ovinger/Oving_4/data/alle/"
+path = subset_path
 
-train_pos_path = "/Users/olehakon95/Documents/OneDrive - NTNU/Arstrinn_2/semester_3_host/ProgLAB/Ovinger/Oving_4/data/subset/train/pos"
-train_neg_path = "/Users/olehakon95/Documents/OneDrive - NTNU/Arstrinn_2/semester_3_host/ProgLAB/Ovinger/Oving_4/data/subset/train/neg"
+train_pos_path = path + "train/pos"
+train_neg_path = path + "train/neg"
 
-test_pos_path = "/Users/olehakon95/Documents/OneDrive - NTNU/Arstrinn_2/semester_3_host/ProgLAB/Ovinger/Oving_4/data/subset/test/pos"
-test_neg_path = "/Users/olehakon95/Documents/OneDrive - NTNU/Arstrinn_2/semester_3_host/ProgLAB/Ovinger/Oving_4/data/subset/test/neg"
+test_pos_path = path + "test/pos"
+test_neg_path = path + "test/neg"
 
 analyzer = Analyzer(train_pos_path, train_neg_path)
 
