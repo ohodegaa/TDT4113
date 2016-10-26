@@ -2,7 +2,6 @@ from PIL import Image
 from PIL import ImageFilter
 from PIL import ImageEnhance
 
-
 class Imager():
 
     _pixel_colors_ = {'red':(255,0,0), 'green': (0,255,0), 'blue': (0,0,255), 'white': (255,255,255),
@@ -94,6 +93,9 @@ class Imager():
                 return (0,0,0)
         return self.map_image2(wta,image)
 
+    def blur(self):
+        self.image.filter(ImageFilter.BLUR)
+
 
     # Note that grayscale uses the RGB triple to define shades of gray.
     def gen_grayscale(self,image=False): return self.scale_colors(image=image,degree=0)
@@ -152,6 +154,8 @@ class Imager():
         return roll
 
 
+
+
     # Put a picture inside a picture inside a picture....
     def tunnel(self,levels=5, scale=0.75):
         if levels == 0: return self
@@ -196,4 +200,8 @@ def reformat(in_fid, out_ext='jpeg',scalex=1.0,scaley=1.0):
     im = Imager(in_fid)
     im = im.scale(scalex,scaley)
     im.dump_image(base,out_ext)
+
+
+
+
 
