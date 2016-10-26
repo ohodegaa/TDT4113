@@ -11,6 +11,5 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.5.0rc2 (/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="PLAB_Oving_6" />
   </component>
 </module>
